@@ -1,0 +1,34 @@
+var segundos=00
+var minutos=00
+var horas=00
+var interval
+
+function comecar(){
+  interval=setInterval(contador,1000)
+}
+
+function pausar(){
+    clearInterval(interval)
+}
+
+function parar(){
+    clearInterval(interval)
+    segundos=0
+    minutos=0
+    horas=0
+    document.getElementById('contador').innerText='00:00'
+}
+
+function contador(){
+    segundos++
+    if(segundos==60){
+        minutos++
+        segundos=0
+    }
+    if(minutos==60){
+        horas++
+        minutos=0
+        segundos=0
+    }
+    document.getElementById('contador').innerText=horas+':'+minutos+':'+segundos
+}
